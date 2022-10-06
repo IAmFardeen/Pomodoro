@@ -5,7 +5,6 @@ var a = document.getElementById("stop");
 var button = document.getElementById("button");
 document.getElementById("button").addEventListener("click",function(e){
         button.classList.toggle("add");
-        a.classList.toggle("add")
     let totalSeconds=25*60;
     var time2=setInterval(function countdown(){
         let minutes= Math.floor(totalSeconds/60);
@@ -14,40 +13,41 @@ document.getElementById("button").addEventListener("click",function(e){
         document.getElementById("time").innerText=minutes +" : "+seconds;
         console.log("time is running");
         totalSeconds--;
-        a.addEventListener("click",function(){
-            clearInterval(time2);
-        })
+        if(totalSeconds<0){
+             document.getElementById("time").innerText = "00 : 00"
+        };
+
     },1000)
 
     var bc = setInterval(function(){
-        heightcont=heightcont+25;
+        heightcont=heightcont+20;
         document.getElementById("energy").style.height=heightcont+"px";
         if(heightcont>600){
             document.getElementById("energy").style.height="600px";
             clearInterval(bc);
          }
-    },60000)
+    },600000)
     var id =setInterval(function(){
         var school = new Audio("/Music/schoolbell.wav");
-      
     width = width+75;
     height=height+75; 
     
      document.getElementById("color").style.width=width +"px";
-     document.getElementById("color").style.height=height +"px";
-    
+     document.getElementById("color").style.height=height +"px";   
      if(width>375 && height>375 ){
         document.getElementById("color").style.width="100%";
         document.getElementById("color").style.height="100%";
         school.play();
         clearInterval(id);
      }
-     a.addEventListener("click",function(){
-        clearInterval(id);
-     })
+    
     },300000);
+    a.addEventListener("click",function(){
+        clearInterval(id);
+        clearInterval(time2);
+        clearInterval(bc);
+    })
 })
-
 
 
 let songs = 0;
@@ -61,12 +61,19 @@ function playaudio(event){
     y.pause();
     x.play();
    }
+  document.getElementById("play").classList.add("push");
+  setInterval(function(){
+    document.getElementById("play").classList.remove("push");
+  },100)
 }
 
 function pauseaudio(){
     x.pause();
-
     y.pause();
+    document.getElementById("stopb").classList.add("push");
+    setInterval(function(){
+      document.getElementById("stopb").classList.remove("push");
+    },100)
 }
 function nextsong(){
     pauseaudio();
@@ -88,6 +95,10 @@ function nextsong(){
            
         }
     }
+    document.getElementById("forwardb").classList.add("push");
+    setInterval(function(){
+      document.getElementById("forwardb").classList.remove("push");
+    },100)
 }
 
 
@@ -105,7 +116,19 @@ function nextsong(){
             x.pause();
         }
     }
+    document.getElementById("backward").classList.add("push");
+    setInterval(function(){
+      document.getElementById("backward").classList.remove("push");
+    },100)
 }
+
+a.addEventListener("click",function(){
+    a.classList.add("add")
+   setInterval(function(){
+    a.classList.remove("add")
+   },100);
+    
+})
     
 
 
