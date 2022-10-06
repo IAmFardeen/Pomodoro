@@ -13,10 +13,10 @@
 
 <body>
     <audio id="audio" class="audio">
-        <source src="Music/sky.mp3">
+        <source src="/Music/sky.mp3">
     </audio>
     <audio id="audio2" class="audio">
-        <source src="Music/cat.mp3">
+        <source src="/Music/cat.mp3">
     </audio>
     <div class="maincontainer" id="container">
         <div class="progressbar">
@@ -30,11 +30,11 @@
       </div>
     
     </div>
-    <div class="footer">
+    <div class="footer" id="push">
         <button class="back f bf" id="backward" onclick="prevsong()"><i class="fa-solid fa-backward-fast"></i></button>
         <button class="backgroundmusic f" id="play" onclick="playaudio()"><i class="fa-solid fa-music"></i></button>
-        <button class="stopmusic f" id="stop" onclick="pauseaudio()"><i class="fa-solid fa-hand"></i></button>
-        <button class="forward f bf"id="forward" onclick="nextsong()"><i class="fa-solid fa-forward-fast"></i></i></button>
+        <button class="stopmusic f" id="stopb" onclick="pauseaudio()"><i class="fa-solid fa-hand"></i></button>
+        <button class="forward f bf" id="forwardb" onclick="nextsong()"><i class="fa-solid fa-forward-fast"></i></i></button>
     </div>
     <script src="index.js"></script>
 
