@@ -28,7 +28,7 @@ document.getElementById("button").addEventListener("click",function(e){
          }
     },600000)
     var id =setInterval(function(){
-        var school = new Audio("/Music/schoolbell.wav");
+        var school = new Audio("Music/schoolbell.wav");
     width = width+75;
     height=height+75; 
     
